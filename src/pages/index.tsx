@@ -13,6 +13,7 @@ const Wrapper = styled.main<StyledInterface>`
     display: flex;
     justify-content: center;
     position: fixed;
+    white-space: nowrap;
     left: 50%;
     transform: translate(-50%);
   }

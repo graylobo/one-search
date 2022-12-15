@@ -18,17 +18,19 @@ const Wrapper = styled.main`
     width: 100vw;
     height: 100vh;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   #position-container {
     display: flex;
   }
   #option-container {
+
     font-size: 13px;
     border-radius: 10px;
-    position: absolute;
+    position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    min-width: 220px;
     width: 20%;
     height: 20%;
     opacity: 0.9;
