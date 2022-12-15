@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>radio onchange testcase</title>
+    <script>
+      function show(event) {
+        console.log(event.target.value);
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label
+        >Radio1
+        <input type="radio" value="ss" name="radio" id="radio1" onchange="show(event);" /></label
+      ><br />
+      <label>Radio2 <input type="radio" name="radio" id="radio2" onchange="show(event);" /></label
+      ><br />
+      <label>Radio3 <input type="radio" name="radio" id="radio3" onchange="show(event);" /></label
+      ><br />
+      <textarea id="text" rows="10" cols="60"></textarea>
+    </form>
+  </body>
+</html>
