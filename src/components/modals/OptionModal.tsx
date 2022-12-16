@@ -16,6 +16,7 @@ const Wrapper = styled.main`
     justify-content: center;
     align-items: center;
     opacity: 0.5;
+    z-index: 1;
   }
   #option-box {
     width: 100vw;
@@ -225,6 +226,17 @@ export default function OptionModal(props: any) {
                 }}
               />
               위메프
+            </label>
+            <label htmlFor="shoppinghow">
+              <input
+                type="checkbox"
+                id="shoppinghow"
+                checked={marketState.shoppinghow}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, shoppinghow: e.target.checked });
+                }}
+              />
+              쇼핑하우
             </label>
           </div>
 

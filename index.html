@@ -1,25 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>radio onchange testcase</title>
-    <script>
-      function show(event) {
-        console.log(event.target.value);
-      }
-    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
+  <style>
+    .par {
+      display: flex;
+      flex-direction: row;
+    }
+    .con {
+      position: relative;
+      width: max-content;
+    }
+    .cha {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+    }
+  </style>
   <body>
-    <form>
-      <label
-        >Radio1
-        <input type="radio" value="ss" name="radio" id="radio1" onchange="show(event);" /></label
-      ><br />
-      <label>Radio2 <input type="radio" name="radio" id="radio2" onchange="show(event);" /></label
-      ><br />
-      <label>Radio3 <input type="radio" name="radio" id="radio3" onchange="show(event);" /></label
-      ><br />
-      <textarea id="text" rows="10" cols="60"></textarea>
-    </form>
+    <div class="par">
+      <div class="con">
+        <div class="cha">네이버</div>
+        <iframe
+          src="https://search.shopping.naver.com/search/all?query=${result}"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="con con2">
+        <div class="cha cha2">다음</div>
+        <iframe src="https://shoppinghow.kakao.com/" frameborder="0"></iframe>
+      </div>
+    </div>
   </body>
 </html>

@@ -21,6 +21,22 @@ const Wrapper = styled.main<StyledInterface>`
   .divider {
     height: 3vw;
   }
+  .frame-box {
+    position: relative;
+    width: max-content;
+    margin: 0 auto;
+  }
+  .market-name {
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    left: 3%;
+    top: 3%;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+  }
   #iframe-container {
     ${(props) =>
       props.position === "horizontal" &&
@@ -30,8 +46,6 @@ const Wrapper = styled.main<StyledInterface>`
       `}
   }
   .frame {
-    display: block;
-    margin: 0 auto;
     width: ${(props) => props.width}vw;
     height: ${(props) => props.height}vh;
   }
@@ -51,6 +65,7 @@ export default function Home() {
     eleven: true,
     homeplus: true,
     wmp: true,
+    shoppinghow: true,
   });
   const [optionState, setOptionState] = useState({
     width: "90",
@@ -111,56 +126,103 @@ export default function Home() {
       <div className="divider"></div>
       <div id="iframe-container">
         {marketState.naver && (
-          <iframe
-            className="frame"
-            src={`https://search.shopping.naver.com/search/all?query=${result}`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">네이버</div>
+            <iframe
+              className="frame"
+              src={`https://search.shopping.naver.com/search/all?query=${result}`}
+            ></iframe>
+          </div>
         )}
+
+        {marketState.shoppinghow && (
+          <div className="frame-box">
+            <div className="market-name">쇼핑하우</div>
+            <iframe
+              className="frame"
+              src={`https://shoppinghow.kakao.com/search/${result}`}
+            ></iframe>
+          </div>
+        )}
+
         {marketState.google && (
-          <iframe
-            className="frame"
-            src={` https://www.google.com/search?igu=1&query=${result}`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">구글</div>
+            <iframe
+              className="frame"
+              src={` https://www.google.com/search?igu=1&query=${result}`}
+            ></iframe>
+          </div>
         )}
+
         {marketState.coupang && (
-          <iframe className="frame" src={`https://www.coupang.com/np/search?q=${result}`}></iframe>
+          <div className="frame-box">
+            <div className="market-name">쿠팡</div>
+            <iframe
+              className="frame"
+              src={`https://www.coupang.com/np/search?q=${result}`}
+            ></iframe>
+          </div>
         )}
+
         {marketState.gmarket && (
-          <iframe
-            className="frame"
-            src={`https://browse.gmarket.co.kr/search?keyword=${result}`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">지마켓</div>
+            <iframe
+              className="frame"
+              src={`https://browse.gmarket.co.kr/search?keyword=${result}`}
+            ></iframe>
+          </div>
         )}
+
         {marketState.auction && (
-          <iframe
-            className="frame"
-            src={`https://browse.auction.co.kr/search?keyword=${result}`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">옥션</div>
+            <iframe
+              className="frame"
+              src={`https://browse.auction.co.kr/search?keyword=${result}`}
+            ></iframe>
+          </div>
         )}
+
         {marketState.lotteon && (
-          <iframe
-            className="frame"
-            src={`https://www.lotteon.com/search/search/search.ecn?render=search&platform=pc&q=${result}&mallId=1`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">롯데온</div>
+            <iframe
+              className="frame"
+              src={`https://www.lotteon.com/search/search/search.ecn?render=search&platform=pc&q=${result}&mallId=1`}
+            ></iframe>
+          </div>
         )}
 
         {marketState.eleven && (
-          <iframe
-            className="frame"
-            src={`https://search.11st.co.kr/Search.tmall?kwd=${result}`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">11번가</div>
+            <iframe
+              className="frame"
+              src={`https://search.11st.co.kr/Search.tmall?kwd=${result}`}
+            ></iframe>
+          </div>
         )}
+
         {marketState.homeplus && (
-          <iframe
-            className="frame"
-            src={`https://front.homeplus.co.kr/search?entry=direct&keyword=${result}`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">홈플러스</div>
+            <iframe
+              className="frame"
+              src={`https://front.homeplus.co.kr/search?entry=direct&keyword=${result}`}
+            ></iframe>
+          </div>
         )}
+
         {marketState.wmp && (
-          <iframe
-            className="frame"
-            src={`https://search.wemakeprice.com/search?search_cate=top&keyword=${result}`}
-          ></iframe>
+          <div className="frame-box">
+            <div className="market-name">위메프</div>
+            <iframe
+              className="frame"
+              src={`https://search.wemakeprice.com/search?search_cate=top&keyword=${result}`}
+            ></iframe>
+          </div>
         )}
       </div>
     </Wrapper>
