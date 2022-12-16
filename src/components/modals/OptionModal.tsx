@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.main`
+  [type="checkbox"] {
+    vertical-align: middle;
+  }
   #background {
     position: fixed;
     top: 0;
@@ -23,16 +26,16 @@ const Wrapper = styled.main`
     display: flex;
   }
   #option-container {
-
+    padding: 10px;
     font-size: 13px;
     border-radius: 10px;
     position: fixed;
     left: 50%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     min-width: 220px;
-    width: 20%;
-    height: 20%;
+    width: 30%;
+    height: 30%;
     opacity: 0.9;
     background-color: white;
     z-index: 2;
@@ -52,6 +55,7 @@ export default function OptionModal(props: any) {
   const [width, setWidth] = useState(props.optionState.width);
   const [height, setHeight] = useState(props.optionState.height);
   const [position, setPosition] = useState(props.optionState.position);
+  const [marketState, setMarketState] = useState(props.marketState);
 
   useEffect(() => {
     if (Number(width) > 100) {
@@ -124,11 +128,115 @@ export default function OptionModal(props: any) {
               <label htmlFor="vertical">세로</label>
             </div>
           </div>
+          <div id="market-container">
+            <label htmlFor="naver">
+              <input
+                type="checkbox"
+                id="naver"
+                checked={marketState.naver}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, naver: e.target.checked });
+                }}
+              />
+              네이버
+            </label>
+            <label htmlFor="google">
+              <input
+                type="checkbox"
+                id="google"
+                checked={marketState.google}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, google: e.target.checked });
+                }}
+              />
+              구글
+            </label>
+            <label htmlFor="coupang">
+              <input
+                type="checkbox"
+                id="coupang"
+                checked={marketState.coupang}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, coupang: e.target.checked });
+                }}
+              />
+              쿠팡
+            </label>
+            <label htmlFor="gmarket">
+              <input
+                type="checkbox"
+                id="gmarket"
+                checked={marketState.gmarket}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, gmarket: e.target.checked });
+                }}
+              />
+              지마켓
+            </label>
+            <label htmlFor="auction">
+              <input
+                type="checkbox"
+                id="auction"
+                checked={marketState.auction}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, auction: e.target.checked });
+                }}
+              />
+              옥션
+            </label>
+            <label htmlFor="lotteon">
+              <input
+                type="checkbox"
+                id="lotteon"
+                checked={marketState.lotteon}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, lotteon: e.target.checked });
+                }}
+              />
+              롯데온
+            </label>
+            <label htmlFor="eleven">
+              <input
+                type="checkbox"
+                id="eleven"
+                checked={marketState.eleven}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, eleven: e.target.checked });
+                }}
+              />
+              11번가
+            </label>
+            <label htmlFor="homeplus">
+              <input
+                type="checkbox"
+                id="homeplus"
+                checked={marketState.homeplus}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, homeplus: e.target.checked });
+                }}
+              />
+              홈플러스
+            </label>
+            <label htmlFor="wmp">
+              <input
+                type="checkbox"
+                id="wmp"
+                checked={marketState.wmp}
+                onChange={(e) => {
+                  setMarketState({ ...marketState, wmp: e.target.checked });
+                }}
+              />
+              위메프
+            </label>
+          </div>
 
           <div className="save-box">
             <button
               onClick={() => {
                 props.setOptionState({ width, height, position });
+                props.setMarketState(marketState);
+                console.log("marketState2", marketState);
+
                 alert("설정값이 적용되었습니다.");
                 props.setOptionModalOpen(false);
               }}
