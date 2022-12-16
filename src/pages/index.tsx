@@ -46,6 +46,11 @@ const Wrapper = styled.main<StyledInterface>`
         width: max-content;
       `}
   }
+  #kakao-ad-container {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
   .frame {
     width: ${(props) => props.width}vw;
     height: ${(props) => props.height}vh;
@@ -124,6 +129,17 @@ export default function Home() {
           옵션
         </button>
       </div>
+
+      <div id="kakao-ad-container">
+        <ins
+          className="kakao_ad_area"
+          style={{ display: "none;" }}
+          data-ad-unit="DAN-rhsyvEkpOvoZ6A3K"
+          data-ad-width="300"
+          data-ad-height="250"
+        ></ins>
+      </div>
+
       <div className="divider"></div>
       <div id="iframe-container">
         {marketState.naver && (
