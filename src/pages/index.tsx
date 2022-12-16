@@ -17,9 +17,10 @@ const Wrapper = styled.main<StyledInterface>`
     white-space: nowrap;
     left: 50%;
     transform: translate(-50%);
+    z-index: 99;
   }
   .divider {
-    height: 3vw;
+    height: 50px;
   }
   .frame-box {
     position: relative;
@@ -31,8 +32,8 @@ const Wrapper = styled.main<StyledInterface>`
     font-weight: bold;
     color: white;
     background-color: black;
-    left: 3%;
-    top: 3%;
+    left: 1.5%;
+    top: 1.5%;
     border: 1px solid black;
     padding: 5px;
     border-radius: 5px;

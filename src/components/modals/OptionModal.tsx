@@ -35,6 +35,7 @@ const Wrapper = styled.main`
     top: 50%;
     transform: translate(-50%, -50%);
     min-width: 220px;
+    min-height: 230px;
     width: 30%;
     height: 30%;
     opacity: 0.9;
