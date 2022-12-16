@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import HeadMeta from "../components/header/HeadMeta";
 import OptionModal from "../components/modals/OptionModal";
 
 interface StyledInterface {
@@ -77,6 +78,7 @@ export default function Home() {
 
   return (
     <Wrapper width={optionState.width} height={optionState.height} position={optionState.position}>
+      <HeadMeta />
       {optionModalOpen && <OptionModal {...propsContainer} />}
 
       <div id="input-container">
