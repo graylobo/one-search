@@ -52,21 +52,19 @@ const Wrapper = styled.main`
 `;
 
 export default function OptionModal(props: any) {
-  const [width, setWidth] = useState(props.optionState.width);
-  const [height, setHeight] = useState(props.optionState.height);
-  const [position, setPosition] = useState(props.optionState.position);
+  const [optionState, setOptionState] = useState(props.optionState);
   const [marketState, setMarketState] = useState(props.marketState);
 
   useEffect(() => {
-    if (Number(width) > 100) {
+    if (Number(optionState.width) > 100) {
       alert("길이는 100을 초과할 수 없습니다.");
-      setWidth("100");
+      setOptionState({ ...optionState, width: "100" });
     }
-    if (Number(height) > 100) {
+    if (Number(optionState.height) > 100) {
       alert("높이는 100을 초과할 수 없습니다.");
-      setHeight("100");
+      setOptionState({ ...optionState, height: "100" });
     }
-  }, [width, height]);
+  }, [optionState]);
   return (
     <Wrapper>
       <div id="background"></div>
@@ -77,11 +75,11 @@ export default function OptionModal(props: any) {
             <input
               placeholder={"길이"}
               type="number"
-              value={width}
+              value={optionState.width}
               max={100}
               min={10}
               onChange={(e) => {
-                setWidth(e.target.value);
+                setOptionState({ ...optionState, width: e.target.value });
               }}
             />
           </div>
@@ -93,9 +91,9 @@ export default function OptionModal(props: any) {
               type="number"
               max={100}
               min={10}
-              value={height}
+              value={optionState.height}
               onChange={(e) => {
-                setHeight(e.target.value);
+                setOptionState({ ...optionState, height: e.target.value });
               }}
             />
           </div>
@@ -109,7 +107,7 @@ export default function OptionModal(props: any) {
                 name="direction"
                 value={"horizontal"}
                 onChange={(e) => {
-                  setPosition(e.target.value);
+                  setOptionState({ ...optionState, position: e.target.value });
                 }}
               />
               <label htmlFor="horizontal">가로</label>
@@ -122,7 +120,7 @@ export default function OptionModal(props: any) {
                 value={"vertical"}
                 name="direction"
                 onChange={(e) => {
-                  setPosition(e.target.value);
+                  setOptionState({ ...optionState, position: e.target.value });
                 }}
               />
               <label htmlFor="vertical">세로</label>
@@ -233,10 +231,10 @@ export default function OptionModal(props: any) {
           <div className="save-box">
             <button
               onClick={() => {
-                props.setOptionState({ width, height, position });
+                props.setOptionState(optionState);
                 props.setMarketState(marketState);
-                console.log("marketState2", marketState);
-
+                localStorage.setItem("marketState", JSON.stringify(marketState));
+                localStorage.setItem("optionState", JSON.stringify(optionState));
                 alert("설정값이 적용되었습니다.");
                 props.setOptionModalOpen(false);
               }}

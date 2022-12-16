@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import OptionModal from "../components/modals/OptionModal";
 
@@ -56,7 +56,6 @@ export default function Home() {
     height: "90",
     position: "vertical",
   });
-  console.log("marketState", marketState);
   const propsContainer = {
     optionState,
     marketState,
@@ -64,6 +63,18 @@ export default function Home() {
     setOptionState,
     setMarketState,
   };
+
+  useEffect(() => {
+    const marketStateData = localStorage.getItem("marketState");
+    const optionStateData = localStorage.getItem("optionState");
+    if (marketStateData) {
+      setMarketState(JSON.parse(marketStateData));
+    }
+    if (optionStateData) {
+      setOptionState(JSON.parse(optionStateData));
+    }
+  }, []);
+
   return (
     <Wrapper width={optionState.width} height={optionState.height} position={optionState.position}>
       {optionModalOpen && <OptionModal {...propsContainer} />}
